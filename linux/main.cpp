@@ -11,7 +11,8 @@
 int main() {
 
     register_controller("/", hello_world);
-    register_controller("/index", index);
+    // register_controller("/index", index);
+    register_controller("/index", static_cast<std::pair<Doctype, std::string>(*)(const std::string&)>(index));
     register_controller("/asset/default/", get_default_asset);
 
     // Create a socket
